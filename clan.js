@@ -18,7 +18,7 @@ module.exports = Clan = cls.Class.extend({
 			name = clanData.data.members[i].account_name;
 			this.members[pid] = new Member(pid, name);
 			this.memberIds.push(pid);
-			console.log('Added new player - '+pid+' (Clan: '+this.id+')');
+			//console.log('Added new player - '+pid+' (Clan: '+this.id+')');
 		}
 	},
 	

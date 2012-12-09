@@ -41,7 +41,7 @@ module.exports = app = cls.Class.extend({
 		});
 		req.onTimeout(function(){
 			console.log('Player request timeout - '+id);	
-			self.clans[cid].status = 'timeout';
+			//self.clans[cid].status = 'timeout';
 			self.clans[cid].memberIds.push(id);
 		});
 	},
@@ -63,11 +63,13 @@ module.exports = app = cls.Class.extend({
 	},
 	
 	loadClan: function(server,id){
-		if(!_.include(this.clanIds, id) && !_.include(_.keys(this.clans), id)){
+		if(!_.include(this.clanIds, id) && !this.clans[id]){
 			this.clanIds.push(id);
 			console.log('Added new clan - '+id);
+			return {status:'Loading'};
 		}
-		return {status:'Loading'};
+		else return {status:this.clans[id].status};
+		
 	},
 	
 	clanStatus: function(server,id){

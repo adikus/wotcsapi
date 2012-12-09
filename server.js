@@ -10,7 +10,13 @@ module.exports = server = cls.Class.extend({
 		
 		http.createServer(function (request, response) {
 			 
-		    response.writeHead(200, {'Content-Type': 'text/plain'}); 
+		    response.writeHead(200, {
+		    	'Content-Type': 'text/plain',
+		    	'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+		    	'Access-Control-Allow-Credentials': true,
+		    	'Access-Control-Allow-Origin': '*',
+		    	'Access-Control-Allow-Headers': 'Content-Type, *'
+		    }); 
 		    this.data = '';
 		    request.on('data', function(chunk) {
 				this.data += chunk.toString('utf8');
