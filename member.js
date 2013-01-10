@@ -48,7 +48,7 @@ module.exports = Member = cls.Class.extend({
 		
 		_.each(this.vehicles,function(vehicle){
 			if(self.bestTiers[vehicle.type] == vehicle.tier)self.best[vehicle.type].tanks.push(vehicle);
-			if(vehicle.type == 0 && vehicle.tier == 5 && vehicle.nation != 5 && vehicle.nation != 6)
+			if(self.bestTiers[vehicle.type] != 5 && vehicle.type == 0 && vehicle.tier == 5 && vehicle.nation != 5 && vehicle.nation != 6)
 				self.best[vehicle.type].scouts.push(vehicle);
 		});
 

@@ -8,6 +8,7 @@ module.exports = Vehicle = cls.Class.extend({
 		this.tier = parseInt(data.level);
 		this.battles = parseInt(data.battle_count);
 		this.nation = parseInt(this.parseNation(data.nation));
+		this.nation_string = data.nation;
 		//this.image = data.image_url;
 		this.wins = parseInt(data.win_count);
 		this.type = parseInt(this.parseType(data["class"]));

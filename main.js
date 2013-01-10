@@ -8,7 +8,9 @@ function main(){
 	
 	server.setRoute('load',function(server,id){return app.loadClan(server,id);});
 	server.setRoute('status',function(server,id){return app.clanStatus(server,id);});
-	server.setRoute('show',function(server,id){return app.showClan(server,id);});
+	server.setRoute('members',function(server,id){return app.showClanMembers(server,id);});
+	server.setRoute('clan',function(server,id){return app.showClanInfo(server,id);});
+	server.setRoute('member',function(server,id,pid){return app.showMember(server,id,pid);});
 }
 
 main();

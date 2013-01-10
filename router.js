@@ -17,9 +17,10 @@ module.exports = router = cls.Class.extend({
 	    var path = path_parts[1];
 	    var server = 'eu';
 	    var id = path_parts[2];
+	    if(path_parts[3])id2=path_parts[3];else id2=false;
 	    var ret = {};
 	    if(this.routes[path] && path && server && id){
-	    	ret = this.routes[path](server,id);
+	    	ret = this.routes[path](server,id,id2);
 	    }else{
 	    	ret = {status:'Error',error:''};
 	    	if(!id)ret.error += 'Id not defined;';
